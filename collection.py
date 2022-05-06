@@ -88,29 +88,48 @@ users = [
     {'name': 'krishna', 'username': 'krish', 'password': '22222', 'balance': 300000.00}
 ]
 
-
-def transaction():
-    choice = input('Enter w for withdrawal / d for deposite')
-    amount = float(input('Enter amount'))
-
-    if choice == 'd':
-        user['balance'] = user['balance']+amount
-    elif choice == 'w':
-        user['balance'] = user['balance']-amount
-    else:
-        print('Invalid selection')
-
-    print('Your balance is NRs. ', user['balance'])
-    transaction()
-
+users = {
+    'name': ['ram', 'hari', 'shyam'],
+    'username': ['ram123', 'harry', 'sam', 'krish'],
+    'password': ['12345', '54321', '11111', '22222'],
+    'balance': [50000.00, 120000.00, 80000.00, 300000.00]
+}
 
 un = input('Enter username')
 pw = input('Enter password')
 
-for user in users:
-    if user['username']==un and user['password']==pw:
-        print('Welcome ', user['name'], '! Your balance is NRs. ', user['balance'])
-        transaction()
-        break
-else:
-    print('Wrong username or password')
+if un in users['username']:
+    i = users['username'].index(un)
+    if pw == users['password'][i]:
+        pass
+
+# for i in range(len(users['username'])):
+#     if un == users['username'][i] and pw == users['password'][i]:
+#         pass
+
+
+# def transaction():
+#     choice = input('Enter w for withdrawal / d for deposite')
+#     amount = float(input('Enter amount'))
+
+#     if choice == 'd':
+#         user['balance'] = user['balance']+amount
+#     elif choice == 'w':
+#         user['balance'] = user['balance']-amount
+#     else:
+#         print('Invalid selection')
+
+#     print('Your balance is NRs. ', user['balance'])
+#     transaction()
+
+
+# un = input('Enter username')
+# pw = input('Enter password')
+
+# for user in users:
+#     if user['username']==un and user['password']==pw:
+#         print('Welcome ', user['name'], '! Your balance is NRs. ', user['balance'])
+#         transaction()
+#         break
+# else:
+#     print('Wrong username or password')
