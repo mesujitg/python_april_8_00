@@ -4,31 +4,31 @@ import datetime as d
 import re
 from random import shuffle
 
-# country_list = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany"]
-# index = 0
+country_list = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany"]
+index = 0
 
-# def show_word():
-#     global index
-#     word = country_list[index].upper()
-#     wl = list(word)
-#     shuffle(wl)
-#     for i in wl:
-#         print(i, end='')
-#     print()
-#     ans = input('Enter correct word: ')
+def show_word():
+    global index
+    word = country_list[index].upper()
+    wl = list(word)
+    shuffle(wl)
+    for i in wl:
+        print(i, end='')
+    print()
+    ans = input('Enter correct word: ')
 
-#     if ans.lower() == word.lower():
-#         print('correct')
-#         if index == len(country_list) - 1:
-#             print('All levels are completed')
-#         else:    
-#             index += 1
-#             show_word()
-#     else:
-#         print('incorrect')
-#         show_word()
+    if ans.lower() == word.lower():
+        print('correct')
+        if index == len(country_list) - 1:
+            print('All levels are completed')
+        else:    
+            index += 1
+            show_word()
+    else:
+        print('incorrect')
+        show_word()
 
-# show_word()
+show_word()
 
 # a = ['ram', 'shyam', 'hari', 'krishna']
 # print(a)

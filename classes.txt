@@ -1,0 +1,14 @@
+user
+-----
+name address email phone username password user_type
+loginU() logoutU()
+
+student inherits user
+-----------------------
+course fee
+addS() updateS() deleteS() getS()
+
+staff inherits user
+-------------------
+staff_type salary time
+addSt() updateSt() deleteSt() getSt()

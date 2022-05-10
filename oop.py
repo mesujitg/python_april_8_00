@@ -1,23 +1,63 @@
-class Cat:
+class Animal:
     color = ''
+
+    def moves(self):
+        print('It Walks')
+
+
+class Cat(Animal):
+    height = ''
+
+    def make_sound(self):
+        print('Cat Meow')
+
+
+class Dog(Animal):
+    height = ''
+
+    def make_sound(self):
+        print('Dog Bark')
+
+class Crocodile(Animal):
+    length = ''
+
+    def moves(self):
+        print('Crocodile Crawls')
+
+    def make_sound(self):
+        print('Cat Bark')
+
+class Bird(Animal):
     height = ''
 
     def moves(self):
-        print('Cat Walks')
+        print('Birds Fly')
 
-    def sound(self):
-        print('Cat Meow')
 
 
 # c = Cat()
 # c.moves()
 # c.sound()
 
-class EnrolledStudent:
+
+
+
+class User:
     name = ''
     address = ''
     phone = ''
     email = ''
+    username = ''
+    password = ''
+
+    def login():
+        pass
+
+    def logout():
+        pass
+
+
+class Student(User):
     course = ''
     fee = ''
 
@@ -37,58 +77,83 @@ class EnrolledStudent:
         pass
 
 
+class Staff(User):
+    salary = ''
+    time = ''
 
-class Triangle:
+    def add_staff():
+        pass
+
+    def update_staff():
+        pass
+
+    def delete_staff():
+        pass
+
+    def get_staff():
+        pass
+
+
+def add(a, b):
+    return a+b
+
+def add(a, b, c):
+    return a+b+c
+
+
+
+
+
+class Shape:
+    no_of_side = ''
+    length = ''
+    name = ''
+
+    def __init__(self, n, name):
+        self.no_of_side = n
+        self.name = name
+
+    def get_perimeter(self):
+        return (self.no_of_side * self.length)
+
+    def get_area(self):
+        return 0
+
+    def get_angle(self):
+        return (((self.no_of_side-2) * 180)/self.no_of_side)
+
+
+
+class Triangle(Shape):
     base = 0
     height = 0
 
-    def area(self):
+    def __init__(self, b, h, n, name):
+        self.base = b
+        self.height = h
+        super().__init__(n, name)
+
+    def get_area(self):
         return (1/2 * self.base * self.height)
 
 
-# t = Triangle()
+class Rectangle(Shape):
+    length = ''
+    breadth = ''
 
-# b = int(input('Enter base of triangle'))
-# h = int(input('Enter height of triangle'))
+    def __init__(self, l, b, n, name):
+        self.length = l
+        self.breadth = b
+        super().__init__(n, name)
 
-# t.base = b
-# t.height = h
-# print('Area of given Triangle is ', t.area())
-
-
-class Rectangle:
-    __length = ''
-    __breadth = ''
-
-    # def __init__(self, l, b):
-    #     self.__length = l
-    #     self.__breadth = b
-
-    # setter functions
-    def setLength(self, l):
-        self.__length = l
-
-    def setBreadth(self, b):
-        self.__breadth = b
-
-    # getter functions
-    # def getLength(self):
-    #     return self.__length
-
-    # def getBreadth(self):
-    #     return self.__breadth
-
-    def area(self):
-        return (self.__length * self.__breadth)
+    def get_area(self):
+        return (self.length * self.breadth)
 
 
-l = int(input('Enter length of Rectangle'))
-b = int(input('Enter breadth of Rectangle'))
+t = Triangle(20, 10, 3, 'Triangle')
+print(t.get_area())
 
-r = Rectangle()
-r.setLength(l)
-r.setBreadth(b)
+r = Rectangle(20, 30, 4, 'Rectangle')
+print(r.get_area())
 
-
-print('Area of given Rectangle is ', r.area())
 
