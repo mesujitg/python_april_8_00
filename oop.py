@@ -1,3 +1,6 @@
+import math
+
+
 class Animal:
     color = ''
 
@@ -102,9 +105,9 @@ def add(a, b, c):
 
 
 
+from abc import ABC, abstractmethod
 
-
-class Shape:
+class Shape(ABC):
     no_of_side = ''
     length = ''
     name = ''
@@ -116,8 +119,9 @@ class Shape:
     def get_perimeter(self):
         return (self.no_of_side * self.length)
 
+    @abstractmethod
     def get_area(self):
-        return 0
+        pass
 
     def get_angle(self):
         return (((self.no_of_side-2) * 180)/self.no_of_side)
@@ -136,6 +140,9 @@ class Triangle(Shape):
     def get_area(self):
         return (1/2 * self.base * self.height)
 
+    def get_perimeter(self, a, b, c):
+        return (a+b+c)
+
 
 class Rectangle(Shape):
     length = ''
@@ -149,11 +156,45 @@ class Rectangle(Shape):
     def get_area(self):
         return (self.length * self.breadth)
 
+    def get_perimeter(self):
+        return (2 * (self.length + self.breadth))
+
+
+class Circle(Shape):
+    radius = ''
+
+    def __init__(self, r, n, name):
+        self.radius = r
+        super().__init__(n, name)
+
+    def get_area(self):
+        return (math.pi * self.radius * self.radius)
+
+    def get_perimeter(self):
+        return (2 * math.pi * self.radius)
+
+
+class Square(Shape):
+    length = ''
+
+    def __init__(self, l, n, name):
+        self.length = l
+        super().__init__(n, name)
+
+    def get_area(self):
+        return (self.length * self.length)
+
+
+c = Circle(10, 0, 'Circle')
+print(c.get_area())
 
 t = Triangle(20, 10, 3, 'Triangle')
 print(t.get_area())
 
 r = Rectangle(20, 30, 4, 'Rectangle')
 print(r.get_area())
+
+s = Square(10, 4, 'Square')
+print(s.get_perimeter())
 
 

@@ -1,14 +1,24 @@
-user
------
-name address email phone username password user_type
-loginU() logoutU()
+Calculator
+-----------
+num1, num2, op
+calculate()
 
-student inherits user
------------------------
-course fee
-addS() updateS() deleteS() getS()
 
-staff inherits user
--------------------
-staff_type salary time
-addSt() updateSt() deleteSt() getSt()
+Restaurant Food Order
+---------------------
+Food: name type price image is_available
+Order: food qty table_no datetime
+Bill: order discount service_charge vat
+
+
+Movie Ticket Booking
+---------------------
+User:
+Movie:
+Hall:
+Screen/Audi: name capacity 
+ShowTime: screen time movie price
+Booking: user showtime seats
+
+Shopping App
+------------
