@@ -13,12 +13,26 @@ Bill: order discount service_charge vat
 
 Movie Ticket Booking
 ---------------------
-User:
-Movie:
-Hall:
+User: name email phone username password role status
+Movie: title category duration genre language
+Hall: location phone email details
 Screen/Audi: name capacity 
+Seat: type screen extra_charge
 ShowTime: screen time movie price
-Booking: user showtime seats
+Booking: user showtime seat
 
 Shopping App
 ------------
+User: name email phone address username password role status
+Category: title details image
+Product: name category subcategory brand price stock details size spec
+Cart: user product qty
+Wishlist: user product
+Order: user product price qty discount discount_type amount address/location phone datetime status 
+Payment - API
+
+orders
+------
+1.  	1   5    500 2  0    none 1000 2020-01-01
+...............................................
+1001.   100 5    700 3  10%  none 2100 2022-01-01

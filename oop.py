@@ -140,8 +140,22 @@ class Triangle(Shape):
     def get_area(self):
         return (1/2 * self.base * self.height)
 
-    def get_perimeter(self, a, b, c):
+    @staticmethod
+    def get_perimetert(a, b, c):
         return (a+b+c)
+
+    @classmethod
+    def get_triangle(cls, b, h, n, name):
+        return cls(b, h, n, name)
+
+
+ob1 = Triangle.get_triangle(10, 10, 3, 'Equilateral Triangle')
+ob2 = Triangle.get_triangle(10, 10, 3, 'Isosceles Triangle')
+ob3 = Triangle.get_triangle(10, 10, 3, 'Right Angled Triangle')
+
+print(ob1.name)
+print(ob2.name)
+print(ob3.name)
 
 
 class Rectangle(Shape):
@@ -198,3 +212,12 @@ s = Square(10, 4, 'Square')
 print(s.get_perimeter())
 
 
+class Math:
+
+    @staticmethod
+    def add(a, b, c=0):
+        return a+b+c
+
+m = Math()
+print(m.add(5, 10))
+print(m.add(5, 10, 15))

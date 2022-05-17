@@ -43,7 +43,7 @@ def bingo(set):
     num = input('Enter your Number')
 
     if num in set1 and num in set2 and num in set3:
-        print('Bingo')
+        print('Bingo', set1, set2, set3)
         bingo('123456')
     else:
         count = 0
@@ -53,7 +53,7 @@ def bingo(set):
             count += 1
         if num in set3:
             count += 1
-        print('Your missed by:', 3-count)
+        print('Patterns:', set1, set2, set3)
         bingo('123456')
 
 bingo('123456')
