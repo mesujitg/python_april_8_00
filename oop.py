@@ -221,3 +221,17 @@ class Math:
 m = Math()
 print(m.add(5, 10))
 print(m.add(5, 10, 15))
+
+
+
+class Account:
+    name = ''
+    username = ''
+    password = ''
+    balance = 0
+
+    def login(self):
+        pass
+
+    def transaction(self):
+        pass
