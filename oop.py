@@ -230,8 +230,21 @@ class Account:
     password = ''
     balance = 0
 
+    def __init__(self, n, u, p, b) -> None:
+        self.name = n
+        self.username = u
+        self.password = p
+        self.balance = b
+
     def login(self):
         pass
 
     def transaction(self):
         pass
+
+
+users = [
+    Account('ram', 'ram123', '12345', 50000),
+    Account('shyam', 'shyam1', 'shyam1', 150000),
+    Account('hari', 'harry', '11111', 75000),
+]
