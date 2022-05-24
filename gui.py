@@ -10,8 +10,8 @@ root.geometry('300x300')
 def on_login_click():
     # un = entry_un.get()
     # pw = entry_pw.get()
-    entry_un.insert(0, combo.get())
-    label_ouptput.config(text=un)
+    # entry_un.insert(0, combo.get())
+    # label_output.config(text=un)
     print(un.get())
 
 
@@ -42,8 +42,8 @@ button_login.pack(side='left')
 button_reg = Button(frame, text='Register', width=10)
 button_reg.pack(side='right')
 
-# label_ouptput = Label(root, padx=10, pady=20, text="Output")
-# label_ouptput.grid(row=3, column=0, columnspan=2)
+# label_output = Label(root, padx=10, pady=20, text="Output")
+# label_output.grid(row=3, column=0, columnspan=2)
 #
 # radio_male = Radiobutton(root, text='Male', textvariable=gender, value='Male')
 # radio_male.grid(row=4, column=0)
