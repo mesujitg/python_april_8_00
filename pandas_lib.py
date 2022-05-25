@@ -32,5 +32,5 @@ students6 = {
 data = pandas.DataFrame(students6)
 print(data)
 
-# print(pandas.read_json('users.json'))
+# print(pandas.read_json('users.json').to_string())
 print(pandas.read_csv('users.csv'))
