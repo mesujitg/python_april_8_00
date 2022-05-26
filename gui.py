@@ -1,36 +1,90 @@
 from tkinter import *
 from tkinter import ttk
+import json
+
+
+with open('users.json', 'r') as f:
+    data = json.load(f)
+
+print(data)
+
 
 root = Tk()
 root.title('User Login')
-root.geometry('300x300')
-# root.resizable(0, 0)
+root.geometry('300x200')
+root.resizable(0, 0)
+
+
+def transaction(opt):
+    print(amount.get())
+    if opt == 'withdraw':
+        print('withdraw')
+    elif opt == 'deposite':
+        print('deposite')
 
 
 def on_login_click():
-    # un = entry_un.get()
-    # pw = entry_pw.get()
-    # entry_un.insert(0, combo.get())
-    # label_output.config(text=un)
-    print(un.get())
+    un = entry_un.get()
+    pw = entry_pw.get()
+    for user in data:
+        if user['username'] == un and user['password'] == pw:
+            print('Logged in')
+            root.destroy()
+
+            root_db = Tk()
+            root_db.title('User Dashboard')
+            root_db.geometry('300x300')
+            root_db.resizable(0, 0)
+
+            global amount
+            amount = StringVar()
+
+            label_msg = Label(root_db, text=f'Welcome {user["name"]}!!!',
+                              font=("Arial", 14))
+            label_msg.grid(row=0, column=0, padx=20)
+
+            label_bal = Label(root_db,
+                              text=f'Your Balance: NRs. {user["balance"]}',
+                              font=("Arial", 14))
+            label_bal.grid(row=1, column=0, padx=20)
+
+            btn_wd = Button(root_db, text="Withdraw", padx=5, pady=5,
+                            command=lambda: transaction('withdraw'))
+            btn_wd.grid(row=2, column=0, padx=20, pady=10)
+
+            btn_dep = Button(root_db, text="Deposite", padx=5, pady=5,
+                             command=lambda: transaction('deposite'))
+            btn_dep.grid(row=3, column=0, padx=20)
+
+            entry_amount = Entry(root_db, font=("Arial", 20), width=10,
+                           justify='center', textvariable=amount)
+            entry_amount.grid(row=4, column=0, padx=20, pady=10)
+
+            root_db.mainloop()
+
+            break
+    else:
+        print('Wrong Credentials')
+        label_output.config(text='Wrong Credentials')
 
 
-un = StringVar()
-pw = StringVar()
-gender = StringVar()
+
+# un = StringVar()
+# pw = StringVar()
+# gender = StringVar()
 
 
 # grid, place, pack
 label_un = Label(root, text='Username', font=("Arial", 14), padx=10, pady=10)
 label_un.grid(row=0, column=0)
 
-entry_un = Entry(root, textvariable=un)
-entry_un.grid(row=0, column=1)
+entry_un = Entry(root)
+entry_un.grid(row=0, column=1, padx=10)
 
 label_pw = Label(root, text='Password', font=("Arial", 14))
 label_pw.grid(row=1, column=0)
 
-entry_pw = Entry(root, show='*', textvariable=pw)
+entry_pw = Entry(root, show='*')
 entry_pw.grid(row=1, column=1)
 
 frame = Frame(root, padx=10, pady=20)
@@ -42,8 +96,8 @@ button_login.pack(side='left')
 button_reg = Button(frame, text='Register', width=10)
 button_reg.pack(side='right')
 
-# label_output = Label(root, padx=10, pady=20, text="Output")
-# label_output.grid(row=3, column=0, columnspan=2)
+label_output = Label(root, padx=10, pady=20, text="", foreground='red')
+label_output.grid(row=3, column=0, columnspan=2)
 #
 # radio_male = Radiobutton(root, text='Male', textvariable=gender, value='Male')
 # radio_male.grid(row=4, column=0)
