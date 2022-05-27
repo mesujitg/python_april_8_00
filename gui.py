@@ -8,6 +8,8 @@ with open('users.json', 'r') as f:
 
 print(data)
 
+auth_user_index = None
+
 
 root = Tk()
 root.title('User Login')
@@ -16,19 +18,25 @@ root.resizable(0, 0)
 
 
 def transaction(opt):
-    print(amount.get())
+    amt = float(amount.get())
     if opt == 'withdraw':
-        print('withdraw')
+        data[auth_user_index]['balance'] = data[auth_user_index]['balance'] - amt
     elif opt == 'deposite':
-        print('deposite')
+        data[auth_user_index]['balance'] = data[auth_user_index]['balance'] + amt
+
+    print('New Balance:', data[auth_user_index]['balance'])
+    with open('users.json', 'w') as f:
+        json.dump(data, f)
 
 
 def on_login_click():
+    global auth_user_index
     un = entry_un.get()
     pw = entry_pw.get()
     for user in data:
         if user['username'] == un and user['password'] == pw:
             print('Logged in')
+            auth_user_index = data.index(user)
             root.destroy()
 
             root_db = Tk()
@@ -69,11 +77,6 @@ def on_login_click():
 
 
 
-# un = StringVar()
-# pw = StringVar()
-# gender = StringVar()
-
-
 # grid, place, pack
 label_un = Label(root, text='Username', font=("Arial", 14), padx=10, pady=10)
 label_un.grid(row=0, column=0)
@@ -98,6 +101,7 @@ button_reg.pack(side='right')
 
 label_output = Label(root, padx=10, pady=20, text="", foreground='red')
 label_output.grid(row=3, column=0, columnspan=2)
+
 #
 # radio_male = Radiobutton(root, text='Male', textvariable=gender, value='Male')
 # radio_male.grid(row=4, column=0)
